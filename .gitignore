@@ -3,3 +3,7 @@ Client/bin/Debug
 Client/obj/Debug
 Server/bin/Debug
 Server/obj/Debug
+DbLayer/bin/Debug
+DbLayer/obj/Debug
+Models/bin/Debug
+Models/obj/Debug
