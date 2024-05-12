@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LORD\\Documents\\Project-Femida\\Femida\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\LORD\\Documents\\MEL\\Famida_Projact\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\LORD\\Documents\\Project-Femida\\Femida\\Server\\Server.csproj",
+      "projectPath": "C:\\Users\\LORD\\Documents\\MEL\\Famida_Projact\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\LORD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LORD\\Documents\\Project-Femida\\Femida\\Server\\obj\\",
+      "outputPath": "C:\\Users\\LORD\\Documents\\MEL\\Famida_Projact\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
