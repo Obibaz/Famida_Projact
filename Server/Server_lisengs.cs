@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using Azure;
 using DbLayer;
 using Models;
 using Newtonsoft.Json;
@@ -22,18 +23,21 @@ namespace Server
 
         }
 
-        public void Start()
+        public async Task StartAsync()
         {
             _listener.Start();
 
-
-            while (true)
+            await Task.Run(() =>
             {
-                TcpClient client = _listener.AcceptTcpClient();
-
-                HandleClient(client);
-            }
+                while (true)
+                {
+                    TcpClient client = _listener.AcceptTcpClient();
+                    HandleClient(client);
+                }
+            });
         }
+
+
 
         private void HandleClient(TcpClient client)
         {
@@ -46,7 +50,7 @@ namespace Server
 
             if (my.Header.ToString() == "Login")
             {
-
+                MyResponse response = new MyResponse() { Massage = "WRONG" };
                 var factory = new  FemidaDbContextFactory();
                 using (var db = factory.CreateDbContext(null))
                 {
@@ -55,15 +59,31 @@ namespace Server
                         if (item.Name == my.User_1.Name
                             && item.Pass == my.User_1.Pass && item.Active == true)
                         {
-                                
-                                MyResponse response = new MyResponse() {Massage = "SUCCESS", Userss = item};
-                                string jsonResponse = JsonConvert.SerializeObject(response);
-                                byte[] responseData = Encoding.UTF8.GetBytes(jsonResponse);
-                                ns.Write(responseData, 0, responseData.Length);
-                            
+                            response = new MyResponse() { Massage = "SUCCESS", Userss = item };
                         }
                     }
+                    string jsonResponse = JsonConvert.SerializeObject(response);
+                    byte[] responseData = Encoding.UTF8.GetBytes(jsonResponse);
+                    ns.Write(responseData, 0, responseData.Length);
+
+
                 }
+            }
+            else if (my.Header.ToString() == "GET ALL USERS")
+            {
+
+                MyResponse response = new MyResponse();
+                var factory = new FemidaDbContextFactory();
+                using (var db = factory.CreateDbContext(null))
+                {
+                    
+                    response.UsersList= db.Users.ToList();
+                    string jsonResponse = JsonConvert.SerializeObject(response);
+                    byte[] responseData = Encoding.UTF8.GetBytes(jsonResponse);
+                    ns.Write(responseData, 0, responseData.Length);
+
+                }
+
             }
         }
 

@@ -1,6 +1,8 @@
 ﻿using Models;
+using Newtonsoft.Json;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using System.Windows;
 
 #pragma warning disable SYSLIB0011
@@ -27,13 +29,21 @@ namespace  Client
                 using TcpClient acceptor = new(address, port.Value);
                 await using NetworkStream ns = acceptor.GetStream();
 
-                BinaryFormatter bf = new();
+                // Серіалізуємо об'єкт в JSON та відправляємо його на сервер
+                string jsonRequest = JsonConvert.SerializeObject(request);
+                byte[] requestData = Encoding.UTF8.GetBytes(jsonRequest);
+                ns.Write(requestData, 0, requestData.Length);
 
-                bf.Serialize(ns, request);
+                // Отримуємо відповідь від сервера
+                byte[] responseData = new byte[1024];
+                int bytesRead = ns.Read(responseData, 0, responseData.Length);
+                string jsonResponse = Encoding.UTF8.GetString(responseData, 0, bytesRead);
+
+               
 
                 if (waitForResponse)
                 {
-                    MyResponse response = (MyResponse)bf.Deserialize(ns);
+                    MyResponse response = JsonConvert.DeserializeObject<MyResponse>(jsonResponse);
 
                     if (response.Massage is null)
                     {

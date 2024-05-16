@@ -7,31 +7,25 @@ namespace Server
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
 
 
-            Thread _thread;
             var factory = new FemidaDbContextFactory();
             using (var db = factory.CreateDbContext(null))
             {
-
+                // Ініціалізація бази даних, якщо потрібно
             }
 
             Server_lisengs server = new Server_lisengs();
+            await server.StartAsync();
 
-
-
-            _thread = new Thread(server.Start);
-            _thread.IsBackground = true;
-            _thread.Start();
-
-            Console.ReadLine();
-
+            Console.ReadLine(); // Зупинка програми при натисканні Enter
             Console.WriteLine("Hello, World!");
         }
+    }
 
        
 
-    }
+    
 }
