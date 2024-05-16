@@ -13,8 +13,8 @@ namespace DbLayer
         public ContaxtDBContext(DbContextOptions options) : base(options)
         {
             //Database.EnsureDeleted();
-            Database.EnsureCreated();
-            First_Data();
+            //Database.EnsureCreated();
+            //First_Data();
         }
 
         public DbSet<User> Users { get; set; }
@@ -30,8 +30,6 @@ namespace DbLayer
             
 
             Users.AddRange(user1, user2);
-
-
 
             SaveChanges();
         }
