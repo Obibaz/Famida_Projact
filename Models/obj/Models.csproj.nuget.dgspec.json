@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Famida_Projact\\Models\\Models.csproj": {}
+    "D:\\Famida_Projact\\Models\\Models.csproj": {}
   },
   "projects": {
-    "d:\\Famida_Projact\\Models\\Models.csproj": {
+    "D:\\Famida_Projact\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Famida_Projact\\Models\\Models.csproj",
+        "projectUniqueName": "D:\\Famida_Projact\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "d:\\Famida_Projact\\Models\\Models.csproj",
+        "projectPath": "D:\\Famida_Projact\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\PRO i5\\.nuget\\packages\\",
-        "outputPath": "d:\\Famida_Projact\\Models\\obj\\",
+        "outputPath": "D:\\Famida_Projact\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PRO i5\\AppData\\Roaming\\NuGet\\NuGet.Config",

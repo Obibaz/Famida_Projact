@@ -4450,8 +4450,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "d:\\Famida_Projact\\Models\\Models.csproj": {
-              "projectPath": "d:\\Famida_Projact\\Models\\Models.csproj"
+            "D:\\Famida_Projact\\Models\\Models.csproj": {
+              "projectPath": "D:\\Famida_Projact\\Models\\Models.csproj"
             }
           }
         }

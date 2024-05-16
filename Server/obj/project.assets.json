@@ -3218,8 +3218,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Famida_Projact\\DbLayer\\DbLayer.csproj": {
-              "projectPath": "D:\\Famida_Projact\\DbLayer\\DbLayer.csproj"
+            "d:\\Famida_Projact\\DbLayer\\DbLayer.csproj": {
+              "projectPath": "d:\\Famida_Projact\\DbLayer\\DbLayer.csproj"
             },
             "D:\\Famida_Projact\\Models\\Models.csproj": {
               "projectPath": "D:\\Famida_Projact\\Models\\Models.csproj"

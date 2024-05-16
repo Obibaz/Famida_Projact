@@ -4,14 +4,14 @@
     "D:\\Famida_Projact\\Server\\Server.csproj": {}
   },
   "projects": {
-    "D:\\Famida_Projact\\DbLayer\\DbLayer.csproj": {
+    "d:\\Famida_Projact\\DbLayer\\DbLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Famida_Projact\\DbLayer\\DbLayer.csproj",
+        "projectUniqueName": "d:\\Famida_Projact\\DbLayer\\DbLayer.csproj",
         "projectName": "DbLayer",
-        "projectPath": "D:\\Famida_Projact\\DbLayer\\DbLayer.csproj",
+        "projectPath": "d:\\Famida_Projact\\DbLayer\\DbLayer.csproj",
         "packagesPath": "C:\\Users\\PRO i5\\.nuget\\packages\\",
-        "outputPath": "D:\\Famida_Projact\\DbLayer\\obj\\",
+        "outputPath": "d:\\Famida_Projact\\DbLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PRO i5\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -168,8 +168,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Famida_Projact\\DbLayer\\DbLayer.csproj": {
-                "projectPath": "D:\\Famida_Projact\\DbLayer\\DbLayer.csproj"
+              "d:\\Famida_Projact\\DbLayer\\DbLayer.csproj": {
+                "projectPath": "d:\\Famida_Projact\\DbLayer\\DbLayer.csproj"
               },
               "D:\\Famida_Projact\\Models\\Models.csproj": {
                 "projectPath": "D:\\Famida_Projact\\Models\\Models.csproj"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Famida_Projact\\Client\\Client.csproj": {}
+    "D:\\Famida_Projact\\Client\\Client.csproj": {}
   },
   "projects": {
-    "d:\\Famida_Projact\\Client\\Client.csproj": {
+    "D:\\Famida_Projact\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Famida_Projact\\Client\\Client.csproj",
+        "projectUniqueName": "D:\\Famida_Projact\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "d:\\Famida_Projact\\Client\\Client.csproj",
+        "projectPath": "D:\\Famida_Projact\\Client\\Client.csproj",
         "packagesPath": "C:\\Users\\PRO i5\\.nuget\\packages\\",
-        "outputPath": "d:\\Famida_Projact\\Client\\obj\\",
+        "outputPath": "D:\\Famida_Projact\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PRO i5\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -31,8 +31,8 @@
               "d:\\Famida_Projact\\DbLayer\\DbLayer.csproj": {
                 "projectPath": "d:\\Famida_Projact\\DbLayer\\DbLayer.csproj"
               },
-              "d:\\Famida_Projact\\Models\\Models.csproj": {
-                "projectPath": "d:\\Famida_Projact\\Models\\Models.csproj"
+              "D:\\Famida_Projact\\Models\\Models.csproj": {
+                "projectPath": "D:\\Famida_Projact\\Models\\Models.csproj"
               }
             }
           }
@@ -104,8 +104,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "d:\\Famida_Projact\\Models\\Models.csproj": {
-                "projectPath": "d:\\Famida_Projact\\Models\\Models.csproj"
+              "D:\\Famida_Projact\\Models\\Models.csproj": {
+                "projectPath": "D:\\Famida_Projact\\Models\\Models.csproj"
               }
             }
           }
@@ -160,14 +160,14 @@
         }
       }
     },
-    "d:\\Famida_Projact\\Models\\Models.csproj": {
+    "D:\\Famida_Projact\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Famida_Projact\\Models\\Models.csproj",
+        "projectUniqueName": "D:\\Famida_Projact\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "d:\\Famida_Projact\\Models\\Models.csproj",
+        "projectPath": "D:\\Famida_Projact\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\PRO i5\\.nuget\\packages\\",
-        "outputPath": "d:\\Famida_Projact\\Models\\obj\\",
+        "outputPath": "D:\\Famida_Projact\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PRO i5\\AppData\\Roaming\\NuGet\\NuGet.Config",
