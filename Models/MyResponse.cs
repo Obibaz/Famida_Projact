@@ -13,6 +13,7 @@ namespace Models
         public string? Massage { get; set; }
         public User? Userss { get; set; }
 
+        public List<User>? UsersList { get; set; }
 
     }
 }
