@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="Login" Height="251" Width="400" Background="Gray">
+        Title="Login" Height="250" Width="400" Background="Gray">
 
     <Window.Resources>
         <Style TargetType="Label">

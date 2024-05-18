@@ -8,23 +8,60 @@
         Title="Admin" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="157*" />
+            <RowDefinition Height="89*" />
+            <RowDefinition Height="Auto" MinHeight="188.039"  />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="187*"></ColumnDefinition>
+            <ColumnDefinition Width="213*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListView ItemsSource="{Binding Items}">
+
+        <ListView Grid.RowSpan="2" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="200" Header="Ім'я" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Width="200" Header="Пароль" DisplayMemberBinding="{Binding Pass}" />
-                    
+                    <GridViewColumn Width="40" Header="ID" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Width="320" Header="LOGIN" DisplayMemberBinding="{Binding Name}" />
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <GroupBox Header="User Information" Grid.RowSpan="2" Grid.Column="1" Margin="10,10,10,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Margin="5,10" Grid.Row="0" Grid.Column="0" Content="Login:"/>
+                <TextBox Margin="5,10" Grid.Row="0" Grid.Column="1" Text="{Binding SelectedItem.Name}"/>
+
+                <Label Margin="5,10" Grid.Row="1" Grid.Column="0" Content="Password:"/>
+                <TextBox Margin="5,10" Grid.Row="1" Grid.Column="1" Text="{Binding SelectedItem.Pass}"/>
+
+                <Label Margin="5,10" Grid.Row="2" Grid.Column="0" Content="Status:"/>
+                <ComboBox Margin="5,10" Grid.Row="2" Grid.Column="1"
+                          ItemsSource="{Binding SelectedItem.PossibleStatuses}"
+                          SelectedItem="{Binding SelectedItem.Status}"/>
+
+                <Label Margin="5,5,5,15" Grid.Row="3" Grid.Column="0" Content="Active:"/>
+                <CheckBox Margin="5,10,255,10" Grid.Row="3" Grid.Column="1"
+                          IsChecked="{Binding SelectedItem.Active}"
+                          Content="Active"/>
+                <Button Margin="114,5,26,15" Grid.Row="3" Grid.Column="1"   Command="{Binding SaveCommand}">Save Chenge</Button>
+            </Grid>
+        </GroupBox>
+        <Button Content="APDATE DATA" HorizontalAlignment="Left" Margin="62,5,0,0" Grid.Row="2" VerticalAlignment="Top"  
+                 Command="{Binding UpdateCommand}" RenderTransformOrigin="-0.53,-1.201" Height="20" Width="77"/>
+        <Button Content="DELETE" HorizontalAlignment="Left" Margin="251,3,0,0" Grid.Row="2" VerticalAlignment="Top"  
+            Command="{Binding DeleteCommand}" RenderTransformOrigin="-0.53,-1.201" Height="20" Width="43"/>
+        <Button Grid.Row="2" Grid.Column="1"  Margin ="50,3,50,97" Content="Add User" Command="{Binding AddUserCommand}" />
+
     </Grid>
 </Window>

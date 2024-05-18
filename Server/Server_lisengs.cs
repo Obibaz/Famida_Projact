@@ -50,7 +50,7 @@ namespace Server
 
             if (my.Header.ToString() == "Login")
             {
-                MyResponse response = new MyResponse() { Massage = "WRONG" };
+                MyResponse response = new MyResponse() { Massage = "Невірний логін або пароль!" };
                 var factory = new  FemidaDbContextFactory();
                 using (var db = factory.CreateDbContext(null))
                 {
@@ -61,12 +61,15 @@ namespace Server
                         {
                             response = new MyResponse() { Massage = "SUCCESS", Userss = item };
                         }
+                        else if (item.Name == my.User_1.Name
+                            && item.Pass == my.User_1.Pass && item.Active != true)
+                        {
+                            response = new MyResponse() { Massage = "Доступ заблоковано!"};
+                        }
                     }
                     string jsonResponse = JsonConvert.SerializeObject(response);
                     byte[] responseData = Encoding.UTF8.GetBytes(jsonResponse);
                     ns.Write(responseData, 0, responseData.Length);
-
-
                 }
             }
             else if (my.Header.ToString() == "GET ALL USERS")
@@ -83,9 +86,75 @@ namespace Server
                     ns.Write(responseData, 0, responseData.Length);
 
                 }
-
             }
+
+            else if (my.Header.ToString() == "SAVE CHENGE")
+            {
+
+                MyResponse response = new MyResponse() { Massage = "Користувача не знайдено!"};
+                var factory = new FemidaDbContextFactory();
+                using (var db = factory.CreateDbContext(null))
+                {
+                    var tmp = db.Users.FirstOrDefault(x => x.Id == my.Id);
+                    if(tmp != null)
+                    {
+                        tmp.Name = my.User_1.Name;
+                        tmp.Pass = my.User_1.Pass;
+                        tmp.Status = my.User_1.Status;
+                        tmp.Active = my.User_1.Active;
+                        db.SaveChanges();
+                        response.Massage = "Зміни застосовані!";
+                    }
+
+                    string jsonResponse = JsonConvert.SerializeObject(response);
+                    byte[] responseData = Encoding.UTF8.GetBytes(jsonResponse);
+                    ns.Write(responseData, 0, responseData.Length);
+
+                }
+            }
+
+            else if (my.Header.ToString() == "DELETE USER")
+            {
+
+                MyResponse response = new MyResponse() { Massage = "Помилка видалення!" };
+                var factory = new FemidaDbContextFactory();
+                using (var db = factory.CreateDbContext(null))
+                {
+                    var userToDelete = db.Users.FirstOrDefault(x => x.Id == my.Id);
+                    if (userToDelete != null)
+                    {
+                        db.Users.Remove(userToDelete);
+                        db.SaveChanges(); 
+                        response.Massage = "Видалено!";
+                    }
+                    string jsonResponse = JsonConvert.SerializeObject(response);
+                    byte[] responseData = Encoding.UTF8.GetBytes(jsonResponse);
+                    ns.Write(responseData, 0, responseData.Length);
+
+                }
+            }
+            
+            else if (my.Header.ToString() == "ADD USER")
+            {
+
+                MyResponse response = new MyResponse() { Massage = "Помилка додавання!" };
+                var factory = new FemidaDbContextFactory();
+                using (var db = factory.CreateDbContext(null))
+                {
+                    db.Users.Add(my.User_1);
+                   
+                        db.SaveChanges(); 
+                        response.Massage = "Успішно додано!";
+                }
+                    string jsonResponse = JsonConvert.SerializeObject(response);
+                    byte[] responseData = Encoding.UTF8.GetBytes(jsonResponse);
+                    ns.Write(responseData, 0, responseData.Length);
+
+                }
+            }
+
+
         }
 
         }
-}
+

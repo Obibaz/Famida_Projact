@@ -25,8 +25,8 @@ namespace DbLayer
         {
 
             
-            var user1 = new User { Name = "1", Pass = "1", Active = true, Status = "work" };
-            var user2 = new User { Name = "2", Pass = "2", Active = true, Status = "admin" };
+            var user1 = new User { Name = "1", Pass = "1", Active = true, Status = "Worker" };
+            var user2 = new User { Name = "2", Pass = "2", Active = true, Status = "Admin" };
             
 
             Users.AddRange(user1, user2);
