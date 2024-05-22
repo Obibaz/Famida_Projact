@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Models
@@ -14,6 +15,7 @@ namespace Models
         public string Vid { get; set; }
         public string Notes { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<User> Users { get; set; }
         public virtual ICollection<Decision> Decisions { get; set; }
     }

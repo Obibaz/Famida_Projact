@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client
+namespace Client.ViewModel
 {
     public class ItemViewModel : INotifyPropertyChanged
     {
@@ -35,7 +35,7 @@ namespace Client
             }
         }
 
-        
+
         public string Name
         {
             get { return _name; }
@@ -62,7 +62,7 @@ namespace Client
                 }
             }
         }
-        
+
         public bool Active
         {
             get { return _active; }
@@ -102,7 +102,7 @@ namespace Client
         //    }
         //}
 
-     
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -110,6 +110,6 @@ namespace Client
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    
+
     }
 }

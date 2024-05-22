@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Models;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 namespace DbLayer
 {
@@ -16,7 +17,7 @@ namespace DbLayer
             //Database.EnsureCreated();
             //First_Data();
         }
-
+        [JsonIgnore]
         public DbSet<User> Users { get; set; }
         public DbSet<Court> Courts { get; set; }
         public DbSet<Decision> Decisions { get; set; }

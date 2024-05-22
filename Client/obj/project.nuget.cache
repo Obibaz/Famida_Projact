@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "31JrPyDvVBsYyyyVOGQX+blW6DyDxJbKQtS4uFN7sKQmfbHZhyyeD77u/UoFJxUixZ+6HYrVKGKBpQ86OTJbVg==",
+  "dgSpecHash": "f4M1IhwdPKp5Cpykj8nwsLEGShGvlHppYJoqFKmmZAS7yGZ8hTQFGqDIT2mbs5tNI8ltQ7+vij+pdVz6YeSiHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LORD\\Desktop\\Famida_Projact\\Client\\Client.csproj",
+  "projectFilePath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Client\\Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LORD\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

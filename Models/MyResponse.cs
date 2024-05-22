@@ -14,6 +14,11 @@ namespace Models
         public User? Userss { get; set; }
 
         public List<User>? UsersList { get; set; }
+        public User User1 { get; set; }
+
+        public ICollection<Court>? CourtList { get; set; }
+
+
 
     }
 }

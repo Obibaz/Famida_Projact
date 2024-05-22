@@ -9,7 +9,7 @@ using System.Windows.Input;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic.Logging;
 using Models;
-namespace Client
+namespace Client.ViewModel
 {
     public class AdminViewModel : INotifyPropertyChanged
     {
@@ -24,19 +24,19 @@ namespace Client
 
         public AdminViewModel()
         {
-           
+
         }
-        
-            public AdminViewModel(User use)
+
+        public AdminViewModel(User use)
         {
             user = use;
 
             Items = new ObservableCollection<ItemViewModel>();
 
-       
+
             foreach (var item in GetALL())
             {
-                Items.Add(new ItemViewModel { Name = item.Name, Pass = item.Pass, Id = item.Id, Active = item.Active, Status = item.Status});
+                Items.Add(new ItemViewModel { Name = item.Name, Pass = item.Pass, Id = item.Id, Active = item.Active, Status = item.Status });
             }
             SaveCommand = new RelayCommand(ExecuteSaveCommand, (parameter) => SelectedItem != null);
             DeleteCommand = new RelayCommand(ExecuteDeleteCommand, (parameter) => SelectedItem != null);
@@ -46,7 +46,7 @@ namespace Client
         }
 
 
-      
+
 
 
         private void ExecuteAddCommand(object parameter)
@@ -56,10 +56,10 @@ namespace Client
             if (addUserWindow.ShowDialog() == true)
             {
                 var newUser = addUserWindow.GetUser();
-                user = new User{ Name = newUser.Name, Pass = newUser.Pass, Id = newUser.Id, Active = newUser.Active, Status = newUser.Status };
+                user = new User { Name = newUser.Name, Pass = newUser.Pass, Id = newUser.Id, Active = newUser.Active, Status = newUser.Status };
             }
-            if (user.Name !=null && user.Pass!=null)
-            System.Windows.Forms.MessageBox.Show(Universal_TCP.SERVER_PROSTO(new MyRequst() { User_1=user, Header= "ADD USER"}).Massage);
+            if (user.Name != null && user.Pass != null)
+                System.Windows.Forms.MessageBox.Show(Universal_TCP.SERVER_PROSTO(new MyRequst() { User_1 = user, Header = "ADD USER" }).Massage);
             UpdateCommand.Execute(null);
 
         }
@@ -88,12 +88,16 @@ namespace Client
         {
             if (SelectedItem != null)
             {
-            User user = new User() { Name = SelectedItem.Name, Pass = SelectedItem.Pass, Status = SelectedItem.Status, Active = SelectedItem.Active};
-            System.Windows.Forms.MessageBox.Show(Universal_TCP.SERVER_PROSTO(new MyRequst() { 
-                Id = SelectedItem.Id, User_1 = user,  Header = "SAVE CHENGE"}).Massage);
+                User user = new User() { Name = SelectedItem.Name, Pass = SelectedItem.Pass, Status = SelectedItem.Status, Active = SelectedItem.Active };
+                System.Windows.Forms.MessageBox.Show(Universal_TCP.SERVER_PROSTO(new MyRequst()
+                {
+                    Id = SelectedItem.Id,
+                    User_1 = user,
+                    Header = "SAVE CHENGE"
+                }).Massage);
             }
         }
-    
+
 
         // Викликайте метод, який оновлює список ListBox
         public ItemViewModel SelectedItem
@@ -106,8 +110,8 @@ namespace Client
                     _selectedItem = value;
                     OnPropertyChanged(nameof(SelectedItem));
 
-                    
-                    
+
+
                 }
             }
         }
@@ -118,8 +122,8 @@ namespace Client
 
         private List<User> GetALL()
         {
-             var tmp = Universal_TCP.SERVER_PROSTO(new MyRequst() { Header = "GET ALL USERS"});
-                return tmp.UsersList;
+            var tmp = Universal_TCP.SERVER_PROSTO(new MyRequst() { Header = "GET ALL USERS" });
+            return tmp.UsersList;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
