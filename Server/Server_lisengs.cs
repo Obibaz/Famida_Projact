@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Azure;
 using DbLayer;
+using Microsoft.EntityFrameworkCore;
 using Models;
 using Newtonsoft.Json;
 
@@ -54,20 +55,30 @@ namespace Server
                 var factory = new  FemidaDbContextFactory();
                 using (var db = factory.CreateDbContext(null))
                 {
-                    foreach (var item in db.Users)
+                    foreach (var item in db.Users
+       .Include(u => u.Courts)
+       .ThenInclude(c => c.Decisions).ToList())
                     {
                         if (item.Name == my.User_1.Name
                             && item.Pass == my.User_1.Pass && item.Active == true)
                         {
-                            response = new MyResponse() { Massage = "SUCCESS", Userss = item };
+                            
+
+
+                                response = new MyResponse() { Massage = "SUCCESS", Userss = item};
+                            
                         }
                         else if (item.Name == my.User_1.Name
                             && item.Pass == my.User_1.Pass && item.Active != true)
                         {
-                            response = new MyResponse() { Massage = "Доступ заблоковано!"};
+                            response = new MyResponse() { Massage = "Доступ заблоковано!" };
                         }
                     }
-                    string jsonResponse = JsonConvert.SerializeObject(response);
+                    var settings = new JsonSerializerSettings
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    };
+                    string jsonResponse = JsonConvert.SerializeObject(response, settings);
                     byte[] responseData = Encoding.UTF8.GetBytes(jsonResponse);
                     ns.Write(responseData, 0, responseData.Length);
                 }

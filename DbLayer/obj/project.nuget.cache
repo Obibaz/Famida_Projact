@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hEk/9mKX1N/jlHCGRdzKm6SQsfm8vRPeEQbV0SC1ZNl3HhtfbUTG3N90aKPznnYtzqV6JCCyN8EYCCrh0d1IlQ==",
+  "dgSpecHash": "UCsFTnvIZO/RbhfQcItHz8SiZGmjF2zB3zxWm1VuMwIAUVv9maIxuPS+dSGP1KL3W6xvY3CQfSHVCqhdFg0IXw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LORD\\Desktop\\Famida_Projact\\DbLayer\\DbLayer.csproj",
+  "projectFilePath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\DbLayer\\DbLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LORD\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

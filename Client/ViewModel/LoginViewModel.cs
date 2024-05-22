@@ -11,9 +11,7 @@ using Azure.Core;
 using Models;
 using Newtonsoft.Json;
 
-
-
-namespace Client
+namespace Client.ViewModel
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
@@ -22,7 +20,7 @@ namespace Client
         public LoginViewModel()
         {
             _loginData = new User();
-            
+
             LoginCommand = new RelayCommand(Login, CanLogin);
         }
 
@@ -54,24 +52,33 @@ namespace Client
 
         private void Login()
         {
-          var request =  new MyRequst() { User_1 = _loginData, Header = "Login" };
+            var request = new MyRequst() { User_1 = _loginData, Header = "Login" };
 
             MyResponse myResponse = Universal_TCP.SERVER_PROSTO(request);
-           
+
             if (myResponse.Massage == "SUCCESS")
             {
-                var NewWIN = new Admin(myResponse.Userss);
-                CloseCurrentWindow();
-                NewWIN.ShowDialog();
-                
+                if (myResponse.Userss.Status == "Admin")
+                {
+                    var NewWIN = new Admin(myResponse.Userss);
+                    CloseCurrentWindow();
+                    NewWIN.ShowDialog();
+                }
+                if (myResponse.Userss.Status == "Worker")
+                {
+                    var NewWIN = new Worker(myResponse.Userss);
+                    CloseCurrentWindow();
+                    NewWIN.ShowDialog();
+                }
+
             }
-            else
+            else if (myResponse.Massage != "SUCCESS")
                 System.Windows.Forms.MessageBox.Show(myResponse.Massage);
         }
 
         private void CloseCurrentWindow()
         {
-            
+
             var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
 
             window?.Close();

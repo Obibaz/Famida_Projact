@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Client.ViewModel;
 using Models;
 
 namespace Client
@@ -28,8 +29,7 @@ namespace Client
         public Worker(User user)
         {
             InitializeComponent();
-            TMP.Text = user.Name;
-            
+            DataContext = new WorkerViewModel(user);
         }
 
     }
