@@ -1195,6 +1195,15 @@
           }
         }
       },
+      "Unofficial.Microsoft.mshtml/7.0.3300": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.mshtml.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.mshtml.dll": {}
+        }
+      },
       "DbLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -3306,6 +3315,18 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Unofficial.Microsoft.mshtml/7.0.3300": {
+      "sha512": "Nv4Bn/0y8ab6f5QnEXoDX49C0U4Iz2nPgHbyg35UV+cGoFS5QkPWNwp461cOEK1O0c/u8TXQ3THP3rdEHmhjtg==",
+      "type": "package",
+      "path": "unofficial.microsoft.mshtml/7.0.3300",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Microsoft.mshtml.dll",
+        "unofficial.microsoft.mshtml.7.0.3300.nupkg.sha512",
+        "unofficial.microsoft.mshtml.nuspec"
+      ]
+    },
     "DbLayer/1.0.0": {
       "type": "project",
       "path": "../DbLayer/DbLayer.csproj",
@@ -3321,7 +3342,8 @@
     "net8.0-windows7.0": [
       "DbLayer >= 1.0.0",
       "Models >= 1.0.0",
-      "Newtonsoft.Json >= 13.0.3"
+      "Newtonsoft.Json >= 13.0.3",
+      "Unofficial.Microsoft.mshtml >= 7.0.3300"
     ]
   },
   "packageFolders": {
@@ -3379,6 +3401,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "Unofficial.Microsoft.mshtml": {
+            "target": "Package",
+            "version": "[7.0.3300, )"
           }
         },
         "imports": [
@@ -3403,5 +3429,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Unofficial.Microsoft.mshtml 7.0.3300\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Unofficial.Microsoft.mshtml",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }

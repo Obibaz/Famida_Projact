@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "f4M1IhwdPKp5Cpykj8nwsLEGShGvlHppYJoqFKmmZAS7yGZ8hTQFGqDIT2mbs5tNI8ltQ7+vij+pdVz6YeSiHg==",
+  "dgSpecHash": "lMxnbUBAM2YRR0lsKT0VJvNNoTF3YZ1Ifd7NyrrpxNHAjtUG4ZWwZcmbxqwEN8SQwvMiZkI96CYvh5p4KCOwjA==",
   "success": true,
   "projectFilePath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Client\\Client.csproj",
   "expectedPackageFiles": [
@@ -67,7 +67,19 @@
     "C:\\Users\\LORD\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\LORD\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\LORD\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\LORD\\.nuget\\packages\\unofficial.microsoft.mshtml\\7.0.3300\\unofficial.microsoft.mshtml.7.0.3300.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Unofficial.Microsoft.mshtml 7.0.3300\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Unofficial.Microsoft.mshtml",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }

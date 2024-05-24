@@ -20,7 +20,7 @@ namespace Server
             Server_lisengs server = new Server_lisengs();
             await server.StartAsync();
 
-            Console.ReadLine(); // Зупинка програми при натисканні Enter
+            Console.ReadLine(); 
             Console.WriteLine("Hello, World!");
         }
     }

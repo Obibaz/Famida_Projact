@@ -14,7 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{F1CE1125-C3A4-4BCE-9901-4B5F2759D4EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbLayer", "DbLayer\DbLayer.csproj", "{13496630-3266-47C5-8BF2-97A7566D4330}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbLayer", "DbLayer\DbLayer.csproj", "{13496630-3266-47C5-8BF2-97A7566D4330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server_1", "Server_1\Server_1.csproj", "{A0BB0748-19B5-4F58-81A2-4C21DC8AB92D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{13496630-3266-47C5-8BF2-97A7566D4330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13496630-3266-47C5-8BF2-97A7566D4330}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13496630-3266-47C5-8BF2-97A7566D4330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0BB0748-19B5-4F58-81A2-4C21DC8AB92D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0BB0748-19B5-4F58-81A2-4C21DC8AB92D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0BB0748-19B5-4F58-81A2-4C21DC8AB92D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0BB0748-19B5-4F58-81A2-4C21DC8AB92D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
