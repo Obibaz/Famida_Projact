@@ -27,9 +27,31 @@ namespace Client
                 ns.Write(requestData, 0, requestData.Length);
 
                 // Отримуємо відповідь від сервера
-                byte[] responseData = new byte[1024];
+                byte[] responseData = new byte[10240];
                 int bytesRead = ns.Read(responseData, 0, responseData.Length);
                 string jsonResponse = Encoding.UTF8.GetString(responseData, 0, bytesRead);
+
+
+
+
+                
+
+
+                Console.WriteLine("Довжина JSON-рядка: " + jsonResponse.Length);
+                Console.WriteLine("JSON-рядок: " + jsonResponse);
+
+                try
+                {
+                    var tmp1 = JsonConvert.DeserializeObject<MyResponse>(jsonResponse);
+                }
+                catch (JsonSerializationException ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Помилка десеріалізації: " + ex.Message);
+                    System.Windows.Forms.MessageBox.Show("JSON-рядок: " + jsonResponse);
+                }
+
+
+
 
 
                 var tmp = JsonConvert.DeserializeObject<MyResponse>(jsonResponse);

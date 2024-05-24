@@ -100,8 +100,12 @@
 
                         <!-- Номер справи -->
                         <Grid>
-                            <TextBox Name="CaseNumber" Margin="5"/>
-                            <TextBlock Text="номер справи" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="Gray" IsHitTestVisible="False" x:Name="CaseNumberPlaceholder"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="38*"/>
+                                <ColumnDefinition Width="177*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="CaseNumber" Text="{Binding NewNum}"   Margin="5,5,5,5" Grid.ColumnSpan="2"/>
+                            <TextBlock Text=" " Margin="10,0,0,0" VerticalAlignment="Center" Foreground="Gray" IsHitTestVisible="False" x:Name="CaseNumberPlaceholder" Grid.ColumnSpan="2"/>
                         </Grid>
 
                         <!-- Позивач -->
@@ -115,8 +119,9 @@
                             <!--<TextBox Name="Defendant" Margin="5" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>-->
                             <TextBlock Text="відповідач" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="Gray" IsHitTestVisible="False" x:Name="DefendantPlaceholder"/>
                         </Grid>
+                        <WebBrowser Name="webBrowser"  LoadCompleted="webBrowser_LoadCompleted" Visibility="Collapsed"/>
                     </Grid>
-                    <Button Content="Перевірити / Додати" Width="135" Height="30" Margin="5"/>
+                    <Button Content="Перевірити / Додати" Command="{Binding AddUserCommand}" Width="135" Height="30" Margin="5" />
                 </StackPanel>
             </GroupBox>
         </StackPanel>

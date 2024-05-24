@@ -17,12 +17,28 @@ namespace Client.ViewModel
         private string _notes;
         private ICollection<Decision> _decisions;
 
+        private string _newNum;
+
         //public List<string> _statuses;
 
         //public ItemViewModel()
         //{
         //    Statuses = new List<string> { "Admin", "Director", "Worker" };
         //}
+
+        public string NewNum
+        {
+            get { return _newNum; }
+            set
+            {
+                if (_newNum != value)
+                {
+                    _newNum = value;
+                    OnPropertyChanged(nameof(NewNum));
+                }
+            }
+        }
+
 
         public int Id
         {
