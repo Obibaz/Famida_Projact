@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Server_1"
         mc:Ignorable="d"
-        Title="Pars" Height="450" Width="800">
+        Title="Pars" Height="400" Width="400">
     <Grid>
         <WebBrowser Name="webBrowser"  LoadCompleted="WebBrowser_LoadCompleted"/>
     </Grid>
