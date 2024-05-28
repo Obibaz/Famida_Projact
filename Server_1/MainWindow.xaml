@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Grid.Row="1" Name="Tmp1" Margin="290,0" Click="Tmp1_Click">Gthi КНОПКА</Button>
+        <TextBox Margin="40" Name="Lisen" TextChanged="Lisen_TextChanged"></TextBox>
 
     </Grid>
 </Window>

@@ -21,6 +21,8 @@ namespace Client.ViewModel
         //    Statuses = new List<string> { "Admin", "Director", "Worker" };
         //}
 
+
+
         public List<string> PossibleStatuses { get; } = new List<string> { "Admin", "Director", "Worker" };
         public int Id
         {

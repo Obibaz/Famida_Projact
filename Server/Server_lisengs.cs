@@ -18,6 +18,7 @@ namespace Server
         private TcpListener _listener;
         private readonly int _port = 9002;
 
+
         public Server_lisengs()
         {
             _listener = new TcpListener(IPAddress.Parse("127.0.0.1"), _port);
