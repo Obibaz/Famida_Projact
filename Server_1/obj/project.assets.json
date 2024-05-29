@@ -3539,24 +3539,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LORD\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\PRO i5\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Server_1\\Server_1.csproj",
+      "projectUniqueName": "D:\\femikdaa\\Server_1\\Server_1.csproj",
       "projectName": "Server_1",
-      "projectPath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Server_1\\Server_1.csproj",
-      "packagesPath": "C:\\Users\\LORD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Server_1\\obj\\",
+      "projectPath": "D:\\femikdaa\\Server_1\\Server_1.csproj",
+      "packagesPath": "C:\\Users\\PRO i5\\.nuget\\packages\\",
+      "outputPath": "D:\\femikdaa\\Server_1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\LORD\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\PRO i5\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3564,21 +3559,20 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Client\\Client.csproj": {
-              "projectPath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Client\\Client.csproj"
+            "D:\\femikdaa\\Client\\Client.csproj": {
+              "projectPath": "D:\\femikdaa\\Client\\Client.csproj"
             },
-            "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\DbLayer\\DbLayer.csproj": {
-              "projectPath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\DbLayer\\DbLayer.csproj"
+            "D:\\femikdaa\\DbLayer\\DbLayer.csproj": {
+              "projectPath": "D:\\femikdaa\\DbLayer\\DbLayer.csproj"
             },
-            "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Models\\Models.csproj"
+            "D:\\femikdaa\\Models\\Models.csproj": {
+              "projectPath": "D:\\femikdaa\\Models\\Models.csproj"
             }
           }
         }
@@ -3587,6 +3581,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3621,7 +3620,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -3630,7 +3629,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Unofficial.Microsoft.mshtml 7.0.3300\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Unofficial.Microsoft.mshtml 7.0.3300' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "Unofficial.Microsoft.mshtml",
       "targetGraphs": [
         "net8.0-windows7.0"

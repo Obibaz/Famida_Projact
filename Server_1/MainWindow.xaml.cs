@@ -101,8 +101,9 @@ namespace Server_1
                 {
                     Lisen.Text += "  "+DateTime.Now.ToShortDateString().ToString()+" "+
                     DateTime.Now.ToShortTimeString().ToString()
-                    //+ " ||| " + my.User_1.Status.ToString()??"null"
-                    //+ " " + my.User_1.Name.ToString() ?? "null"
+
+                    +" ||| "+ my.User_1.Status.ToString() 
+                    +" "+ my.User_1.Name.ToString()
                     + " --> "+ my.Header+ "\n";
                 });
             }
