@@ -11,9 +11,12 @@ namespace Models
     {
         public int Id { get; set; }
         public string Number { get; set; }
-        public string Poz { get; set; }
-        public string Vid { get; set; }
-        public string Notes { get; set; }
+        public string? Poz { get; set; }
+        public string? Vid { get; set; }
+        public string? Notes { get; set; }
+        public DateTime? Dates { get; set; }
+        
+        public DateTime? Dlain { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<User> Users { get; set; }

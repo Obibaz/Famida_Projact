@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "lMxnbUBAM2YRR0lsKT0VJvNNoTF3YZ1Ifd7NyrrpxNHAjtUG4ZWwZcmbxqwEN8SQwvMiZkI96CYvh5p4KCOwjA==",
+  "dgSpecHash": "swm4kl2mlR3NCOI3eWLYqykLRkckDhWGYFGVplaeigCvu44VL/qwkjUgHV2fsA02L+sfggKGKHBmhcxnQKz8Bw==",
   "success": true,
   "projectFilePath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Client\\Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LORD\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\LORD\\.nuget\\packages\\extended.wpf.toolkit\\4.6.0\\extended.wpf.toolkit.4.6.0.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.5\\microsoft.data.sqlclient.5.1.5.nupkg.sha512",

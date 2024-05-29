@@ -13,9 +13,12 @@ namespace Models
 
         public string Header { get; set; }
         public string Inf { get; set; }  
+        public string Inf1 { get; set; }  
+        public string Inf2 { get; set; }  
         public List<User>? Userss { get; set; }
         public User User_1 { get; set; }
         public List<Court> Courtss { get; set; }
+        public Court Court1 { get; set; }
 
     }
 }

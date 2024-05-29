@@ -27,7 +27,7 @@ namespace Client
                 ns.Write(requestData, 0, requestData.Length);
 
                 // Отримуємо відповідь від сервера
-                byte[] responseData = new byte[10240];
+                byte[] responseData = new byte[102400];
                 int bytesRead = ns.Read(responseData, 0, responseData.Length);
                 string jsonResponse = Encoding.UTF8.GetString(responseData, 0, bytesRead);
 
