@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\femikdaa\\DbLayer\\DbLayer.csproj": {}
+    "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\DbLayer\\DbLayer.csproj": {}
   },
   "projects": {
-    "D:\\femikdaa\\DbLayer\\DbLayer.csproj": {
+    "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\DbLayer\\DbLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\femikdaa\\DbLayer\\DbLayer.csproj",
+        "projectUniqueName": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\DbLayer\\DbLayer.csproj",
         "projectName": "DbLayer",
-        "projectPath": "D:\\femikdaa\\DbLayer\\DbLayer.csproj",
-        "packagesPath": "C:\\Users\\PRO i5\\.nuget\\packages\\",
-        "outputPath": "D:\\femikdaa\\DbLayer\\obj\\",
+        "projectPath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\DbLayer\\DbLayer.csproj",
+        "packagesPath": "C:\\Users\\LORD\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\DbLayer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\PRO i5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LORD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\femikdaa\\Models\\Models.csproj": {
-                "projectPath": "D:\\femikdaa\\Models\\Models.csproj"
+              "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Models\\Models.csproj"
               }
             }
           }
@@ -38,11 +43,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -80,21 +80,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\femikdaa\\Models\\Models.csproj": {
+    "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\femikdaa\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "D:\\femikdaa\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\PRO i5\\.nuget\\packages\\",
-        "outputPath": "D:\\femikdaa\\Models\\obj\\",
+        "projectPath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\LORD\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LORD\\Documents\\MEL1\\Famida_Projact\\Models\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\PRO i5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LORD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -102,6 +106,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -114,11 +119,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -140,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
