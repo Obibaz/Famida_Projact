@@ -16,6 +16,7 @@ namespace Client.ViewModel
         private string _poz;
         private string _vid;
         private string _notes;
+        private bool _isdel;
         private string _date;
         private string _dlain;
 
@@ -29,6 +30,19 @@ namespace Client.ViewModel
         //{
         //    Statuses = new List<string> { "Admin", "Director", "Worker" };
         //}
+
+        public bool Isdel 
+        {
+            get { return _isdel; }
+            set
+            {
+                if (_isdel != value)
+                {
+                    _isdel = value;
+                    OnPropertyChanged(nameof(Isdel));
+                }
+            }
+        }
 
         public string NewNum
         {

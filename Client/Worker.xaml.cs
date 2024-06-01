@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Client.ViewModel;
 using Models;
 using mshtml;
@@ -33,11 +34,7 @@ namespace Client
             DataContext = new WorkerViewModel(user);
         }
 
-        
+       
 
-        private void webBrowser_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-
-        }
     }
 }

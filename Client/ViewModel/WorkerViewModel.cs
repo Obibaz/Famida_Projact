@@ -111,6 +111,7 @@ namespace Client.ViewModel
         public ICommand UPDUserCommand { get; private set; }
         public ICommand OpenDisCommand { get; private set; }
         public ICommand SaveChCommand { get; private set; }
+        public ICommand DelOrVidCommand { get; private set; }
 
         //private ItemCourtViewModel _selectedCourtItem;
 
@@ -128,17 +129,34 @@ namespace Client.ViewModel
 
             foreach (var item in user.Courts)
             {
-                Items.Add(new ItemCourtViewModel {  Number = item.Number,  Poz = item.Poz,  Id=item.Id,  Vid= item.Vid,  Notes= item.Notes, _Decision = item.Decisions });
-                FilteredItems.Add(new ItemCourtViewModel {  Number = item.Number,  Poz = item.Poz,  Id=item.Id,  Vid= item.Vid,  Notes= item.Notes, _Decision = item.Decisions });
-
+                Items.Add(new ItemCourtViewModel {  Number = item.Number,  Poz = item.Poz,  Id=item.Id,  Vid= item.Vid, Isdel = item.Is_del,  Notes= item.Notes, _Decision = item.Decisions });
+                FilteredItems.Add(new ItemCourtViewModel {  Number = item.Number,  Poz = item.Poz,  Id=item.Id,  Vid= item.Vid, Isdel = item.Is_del,  Notes= item.Notes, _Decision = item.Decisions });
             }
             AddUserCommand = new RelayCommand(ExecuteAddCommand, CanExecuteOpenAddCommand);
             UPDUserCommand = new RelayCommand(ExecuteUPDCommand);
             OpenDisCommand = new RelayCommand(ExecuteOPENCommand, CanExecuteOpenDisCommand);
             SaveChCommand = new RelayCommand(ExecuteSAVECommand, CanExecuteOpenDisCommand);
+            DelOrVidCommand = new RelayCommand(ExecuteDelOrVidCommand, CanExecuteOpenDisCommand3);
+            SelectedFilter = "Всі";
         }
 
-        private async void ExecuteSAVECommand(object parameter)
+        private async void ExecuteDelOrVidCommand(object parameter)
+        {
+            await Task.Run(() =>
+            {
+                Universal_TCP.SERVER_PROSTO(new MyRequst()
+                {
+                    Header = "DelOrVid",
+                    User_1 = user,
+                    Id = SelectedItem.Id
+                });
+            });
+            
+            this.UPDUserCommand.Execute(parameter);
+
+        }
+            
+            private async void ExecuteSAVECommand(object parameter)
         {
 
             await Task.Run(() =>
@@ -216,6 +234,7 @@ namespace Client.ViewModel
                     Number = item.Number,
                     Poz = item.Poz,
                     Id = item.Id,
+                    Isdel =item.Is_del,
                     Vid = item.Vid,
                     Notes = item.Notes,
                     _Decision = item.Decisions
@@ -225,12 +244,14 @@ namespace Client.ViewModel
                     Number = item.Number,
                     Poz = item.Poz,
                     Id = item.Id,
+                    Isdel = item.Is_del,
                     Vid = item.Vid,
                     Notes = item.Notes,
                     _Decision = item.Decisions
                 });
             }
             SelectedItem = _selectedItemBeforeUpdate;
+            FilterItems();
         }
 
 
@@ -253,6 +274,13 @@ namespace Client.ViewModel
         private bool CanExecuteOpenDisCommand(object parameter)
         {
             if (SelectedItem != null && SelectedItem._Decision != null && SelectedCourtDecision!=null)
+                return true;
+
+            return false;
+        }
+        private bool CanExecuteOpenDisCommand3(object parameter)
+        {
+            if (SelectedItem != null /*&& SelectedItem._Decision != null && SelectedCourtDecision!=null*/)
                 return true;
 
             return false;
@@ -319,20 +347,50 @@ namespace Client.ViewModel
             }
         }
 
-        private void FilterItems()
+        private string _selectedFilter;
+
+        public string SelectedFilter
         {
-            if (string.IsNullOrEmpty(SearchText))
+            get => _selectedFilter;
+            set
             {
-                FilteredItems = new ObservableCollection<ItemCourtViewModel>(Items);
-            }
-            else
-            {
-                FilteredItems = new ObservableCollection<ItemCourtViewModel>(Items.Where(item =>
-    item.Number.Contains(SearchText)||
-    (!string.IsNullOrEmpty(item.Poz) && item.Poz.Contains(SearchText)) ||
-    (!string.IsNullOrEmpty(item.Vid) && item.Vid.Contains(SearchText))));
+                
+                if (_selectedFilter != value)
+                {
+                    _selectedFilter = value;
+                    OnPropertyChanged(SelectedFilter);
+                    FilterItems();
+                }
             }
         }
+
+        private void FilterItems()
+        {
+            var filtered = Items.AsEnumerable();
+
+            if (!string.IsNullOrEmpty(SearchText))
+            {
+                filtered = filtered.Where(item =>
+                    item.Number.Contains(SearchText) ||
+                    (!string.IsNullOrEmpty(item.Poz) && item.Poz.Contains(SearchText)) ||
+                    (!string.IsNullOrEmpty(item.Vid) && item.Vid.Contains(SearchText)));
+            }
+
+            if (SelectedFilter == "System.Windows.Controls.ComboBoxItem: Актуальні")
+            {
+                filtered = filtered.Where(item => item.Isdel ==true);
+            }
+            else if (SelectedFilter == "System.Windows.Controls.ComboBoxItem: Завершені")
+            {
+                filtered = filtered.Where(item => item.Isdel == false);
+            }
+            else if (SelectedFilter == "System.Windows.Controls.ComboBoxItem: Всі")
+            {
+                filtered = filtered.Where(item => item.Isdel == false || item.Isdel==true);
+            }
+            FilteredItems = new ObservableCollection<ItemCourtViewModel>(filtered);
+        }
+
 
 
         /// <summary>

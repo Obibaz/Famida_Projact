@@ -6,19 +6,35 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="Worker" Height="800" Width="1400">
+        Title="Worker" Height="814" Width="1400">
     <Window.Resources>
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <Style TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="#007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#005A9E"/>
+        </Style>
+        <Style TargetType="GroupBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#D3D3D3"/>
         </Style>
     </Window.Resources>
     <Grid>
         <!-- Основна сітка з визначеними рядками та стовпцями -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto" MinHeight="251.04"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="24*"/>
@@ -28,16 +44,21 @@
             <ColumnDefinition Width="488*"/>
             <ColumnDefinition Width="544*"/>
         </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Margin="10,0,0,0">
+            <Label Content="Категоряї" FontSize="16"  Margin="0,0,80,0" FontWeight="Bold"/>
+            <Label Content="Пошук" FontSize="16" FontWeight="Bold"/>
 
-        <!-- КомбоБокс для фільтрування справ -->
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Margin="10,10,0,10">
-            <ComboBox Width="150" Margin="5">
-                <ComboBoxItem Content="Актуальні"/>
-                <ComboBoxItem Content="Завершені"/>
-                <ComboBoxItem Content="Всі"/>
-            </ComboBox>
-            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Margin="5" Width="180"/>
         </StackPanel>
+        <!-- КомбоБокс для фільтрування справ -->
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Margin="10,30,0,10">
+            <ComboBox Width="156" Margin="0,0,10,0" SelectedItem="{Binding SelectedFilter, UpdateSourceTrigger=PropertyChanged}" Height="20"  >
+                <ComboBoxItem Content="Актуальні" Tag="Актуальні" />
+                <ComboBoxItem Content="Завершені" Tag="Завершені" />
+                <ComboBoxItem Content="Всі" Tag="Всі" />
+            </ComboBox>
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="181" Height="20"/>
+        </StackPanel>
+       
 
         <!-- Ліва колонка: Мої судові справи -->
         <GroupBox Header="Мої судові справи" Grid.Row="1" Margin="10,10,10,22" Grid.RowSpan="2" Grid.ColumnSpan="4">
@@ -69,7 +90,7 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button Content="ЗАВЕРШИТИ / ВІДНОВИТИ" Width="200" Height="40" Margin="0,5,0,2" HorizontalAlignment="Center" Grid.Row="1"/>
+                <Button Content="ЗАВЕРШИТИ / ВІДНОВИТИ" Command="{Binding DelOrVidCommand}" Width="200" Height="40" Margin="0,5,0,2" HorizontalAlignment="Center" Grid.Row="1"/>
 
             </Grid>
         </GroupBox>
@@ -81,11 +102,11 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ListBox ItemsSource="{Binding SelectedCourtDecisions}" SelectedItem="{Binding SelectedCourtDecision}"  Margin="5">
+                <ListBox ItemsSource="{Binding SelectedCourtDecisions}" SelectedItem="{Binding SelectedCourtDecision}" Margin="5">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
 
-                            <StackPanel  Width="390">
+                            <StackPanel  Width="390" >
                                 <!--<TextBlock Text="{Binding Id}" />-->
                                 <!--<TextBlock Text="{Binding Index}" />-->
                                 <TextBlock Text="{Binding Type}" FontSize="20" FontFamily="Arial" FontWeight="Bold" />
@@ -101,7 +122,6 @@
                                 <TextBlock Text="{Binding NameCourt}" HorizontalAlignment="Right"  FontSize="12" FontFamily="Arial" FontWeight="Medium" />
                                 <Separator Margin="0,5,0,5" />
                             </StackPanel>
-
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -110,7 +130,7 @@
         </GroupBox>
 
         <GroupBox Header="Примітка до рішення" Grid.Row="1"  Grid.Column="5"  Margin="10,10,10,10" >
-            <StackPanel>
+            <StackPanel Height="416">
                 <StackPanel Orientation="Horizontal">
                     <!-- Панель вибору шрифту -->
                     <ComboBox x:Name="FontComboBox" Width="150" Margin="5" SelectedIndex="0">
@@ -135,7 +155,7 @@
              FontFamily="{Binding ElementName=FontComboBox, Path=SelectedItem.Content}"
              FontSize="{Binding ElementName=FontSizeSlider, Path=Value}"/>
 
-                <Button Content="Зберегти"  Width="100" Height="40" Command="{Binding SaveChCommand}"  Margin="5"/>
+                <Button Content="Зберегти"  Width="100" Height="40" Command="{Binding SaveChCommand}"   Margin="5"/>
                 <!--<Label Content="Судове засідання:"></Label>
                 <xctk:DateTimePicker Value="{Binding Dates}" Format="Custom" FormatString="dd.MM.yyyy HH:mm:ss" Margin="5"/>-->
                 <!--<Label Content="Кінцевий термін:"></Label>-->
@@ -148,12 +168,12 @@
         </GroupBox>
 
         <!-- Права колонка внизу: Збереження примітки та додавання нової справи -->
-        <StackPanel Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" Margin="10,0,10,0" Height="167">
+        <StackPanel Grid.Row="2" Grid.Column="5" VerticalAlignment="Center" Margin="10,0,10,0" Height="195">
 
 
 
-            <GroupBox Header="Додавання нової справи" Margin="5">
-                <StackPanel>
+            <GroupBox Header="Додавання нової справи" Margin="5" Height="188" Width="512">
+                <StackPanel Height="164">
                     <Grid Margin="5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -167,11 +187,11 @@
                         <!-- Номер справи -->
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="38*"/>
-                                <ColumnDefinition Width="177*"/>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="49*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="CaseNumber" Text="{Binding NewNum}"   Margin="70,5,5,5" Grid.ColumnSpan="2"/>
-                            <TextBlock Text="№ справи" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="Gray" IsHitTestVisible="False" x:Name="CaseNumberPlaceholder" Grid.ColumnSpan="2"/>
+                            <TextBox x:Name="CaseNumber" Text="{Binding NewNum}"   Margin="100,5,5,5" Grid.ColumnSpan="2"/>
+                            <TextBlock Text="№ справи" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="Gray" IsHitTestVisible="False" x:Name="CaseNumberPlaceholder" Grid.ColumnSpan="2" Height="21"/>
 
                         </Grid>
 
@@ -182,7 +202,7 @@
                                 <ColumnDefinition Width="35*"/>
                                 <ColumnDefinition Width="112*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="Plaintiff" Text="{Binding NewNum1}"  Margin="71,5,5,5" Grid.ColumnSpan="3"/>
+                            <TextBox x:Name="Plaintiff" Text="{Binding NewNum1}"  Margin="100,5,5,5" Grid.ColumnSpan="3"/>
                             <TextBlock Text="позивач" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="Gray" IsHitTestVisible="False" x:Name="PlaintiffPlaceholder" Grid.ColumnSpan="3"/>
                         </Grid>
 
@@ -192,12 +212,12 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="0*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="Defendant" Text="{Binding NewNum2}"  Margin="70,5,5,5" />
-                            <TextBlock Text="відповідач" Margin="10,0,4,0" VerticalAlignment="Center" Foreground="Gray" IsHitTestVisible="False" x:Name="DefendantPlaceholder" Height="16" />
+                            <TextBox x:Name="Defendant" Text="{Binding NewNum2}"  Margin="100,5,5,5" />
+                            <TextBlock Text="відповідач" Margin="10,0,4,0" VerticalAlignment="Center" Foreground="Gray" IsHitTestVisible="False" x:Name="DefendantPlaceholder" Height="22" />
                         </Grid>
-                        <WebBrowser x:Name="webBrowser"  LoadCompleted="webBrowser_LoadCompleted" Visibility="Collapsed"/>
+
                     </Grid>
-                    <Button Content="Перевірити / Додати" Command="{Binding AddUserCommand}" Width="135" Height="30" Margin="5" />
+                    <Button Content="Перевірити / Додати" Command="{Binding AddUserCommand}" Margin="0,0,0,0" Padding="0,0,0,0" Width="186" Height="30" />
                 </StackPanel>
             </GroupBox>
         </StackPanel>
@@ -217,7 +237,7 @@
        Background="White"
        Foreground="Black"/>
 
-        <StackPanel Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}">
+        <StackPanel Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Height="71" Width="374">
             <TextBlock Text="Завантаження справи..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold"/>
             <ProgressBar IsIndeterminate="True" Width="354" Height="30" Margin="10"/>
         </StackPanel>

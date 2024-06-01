@@ -5,19 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="Admin" Height="450" Width="800">
-    <Grid>
+        Title="Admin" Height="450" Width="800" Background="#F0F0F0">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#005A9E"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,0,0,58">
         <Grid.RowDefinitions>
-            <RowDefinition Height="157*" />
-            <RowDefinition Height="89*" />
-            <RowDefinition Height="Auto" MinHeight="188.039"  />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="187*"></ColumnDefinition>
-            <ColumnDefinition Width="213*"></ColumnDefinition>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
-        <ListView Grid.RowSpan="2" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+        <ListView Grid.RowSpan="2" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" Margin="10">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="40" Header="ID" DisplayMemberBinding="{Binding Id}" />
@@ -26,7 +50,7 @@
             </ListView.View>
         </ListView>
 
-        <GroupBox Header="User Information" Grid.RowSpan="2" Grid.Column="1" Margin="10,10,10,0">
+        <GroupBox Header="User Information" Grid.RowSpan="2" Grid.Column="1" Margin="10,10,10,0" Padding="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -39,29 +63,27 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Margin="5,10" Grid.Row="0" Grid.Column="0" Content="Login:"/>
-                <TextBox Margin="5,10" Grid.Row="0" Grid.Column="1" Text="{Binding SelectedItem.Name}"/>
+                <Label Content="Login:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding SelectedItem.Name}" Grid.Row="0" Grid.Column="1"/>
 
-                <Label Margin="5,10" Grid.Row="1" Grid.Column="0" Content="Password:"/>
-                <TextBox Margin="5,10" Grid.Row="1" Grid.Column="1" Text="{Binding SelectedItem.Pass}"/>
+                <Label Content="Password:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding SelectedItem.Pass}" Grid.Row="1" Grid.Column="1"/>
 
-                <Label Margin="5,10" Grid.Row="2" Grid.Column="0" Content="Status:"/>
-                <ComboBox Margin="5,10" Grid.Row="2" Grid.Column="1"
-                          ItemsSource="{Binding SelectedItem.PossibleStatuses}"
-                          SelectedItem="{Binding SelectedItem.Status}"/>
+                <Label Content="Status:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding SelectedItem.PossibleStatuses}" SelectedItem="{Binding SelectedItem.Status}" Grid.Row="2" Grid.Column="1"/>
 
-                <Label Margin="5,5,5,15" Grid.Row="3" Grid.Column="0" Content="Active:"/>
-                <CheckBox Margin="5,10,255,10" Grid.Row="3" Grid.Column="1"
-                          IsChecked="{Binding SelectedItem.Active}"
-                          Content="Active"/>
-                <Button Margin="114,5,26,15" Grid.Row="3" Grid.Column="1"   Command="{Binding SaveCommand}">Save Chenge</Button>
+                <Label Content="Active:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                    <CheckBox IsChecked="{Binding SelectedItem.Active}" Content="Active"/>
+                    <Button Content="Save Changes" Command="{Binding SaveCommand}" Margin="10,0,0,0"/>
+                </StackPanel>
             </Grid>
         </GroupBox>
-        <Button Content="APDATE DATA" HorizontalAlignment="Left" Margin="62,5,0,0" Grid.Row="2" VerticalAlignment="Top"  
-                 Command="{Binding UpdateCommand}" RenderTransformOrigin="-0.53,-1.201" Height="20" Width="77"/>
-        <Button Content="DELETE" HorizontalAlignment="Left" Margin="251,3,0,0" Grid.Row="2" VerticalAlignment="Top"  
-            Command="{Binding DeleteCommand}" RenderTransformOrigin="-0.53,-1.201" Height="20" Width="43"/>
-        <Button Grid.Row="2" Grid.Column="1"  Margin ="50,3,50,97" Content="Add User" Command="{Binding AddUserCommand}" />
 
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Update Data" Command="{Binding UpdateCommand}" Width="150" Height="40"/>
+            <Button Content="Delete" Command="{Binding DeleteCommand}" Width="150" Height="40"/>
+            <Button Content="Add User" Command="{Binding AddUserCommand}" Width="150" Height="40"/>
+        </StackPanel>
     </Grid>
 </Window>
