@@ -82,6 +82,9 @@ namespace Server_1
                     case "SAVE CH":
                         response = await HandleSaveChAsync(my);
                         break;
+                     case "DelOrVid":
+                        response = await HandleDelOrVidAsync(my);
+                        break;
                     default:
                         response.Massage = "Unknown request header!";
                         break;
@@ -241,7 +244,8 @@ namespace Server_1
 
                     foreach (var user in usersWithCourts)
                     {
-                        Court court = new Court() { Number = my.Inf, Decisions = listds, Poz = my.Inf1, Vid = my.Inf2, Notes = "Тут Ваша замітка про суд" };
+                        Court court = new Court() { Number = my.Inf, Decisions = listds, Poz = my.Inf1,
+                            Is_del = true, Vid = my.Inf2, Notes = "Тут Ваша замітка про суд" };
                         if (user.Id == my.User_1.Id)
                             user.Courts.Add(court);
                     }
@@ -295,6 +299,33 @@ namespace Server_1
                     {
                         var tmp1 = item.Courts.FirstOrDefault(x => x.Id == my.Id);
                         tmp1.Decisions = my.Court1.Decisions.ToList();
+                        response.Massage = "Зміни застосовані!";
+                    }
+                }
+
+                await db.SaveChangesAsync();
+            }
+
+            return response;
+        }
+        
+        private async Task<MyResponse> HandleDelOrVidAsync(MyRequst my)
+        {
+            var response = new MyResponse() { Massage = "eror" };
+            var factory = new FemidaDbContextFactory();
+            using (var db = factory.CreateDbContext(null))
+            {
+                var users = await db.Users
+                    .Include(u => u.Courts)
+                    .ThenInclude(c => c.Decisions)
+                    .ToListAsync();
+
+                foreach (var item in users)
+                {
+                    if (item.Name == my.User_1.Name)
+                    {
+                        var tmp1 = item.Courts.FirstOrDefault(x => x.Id == my.Id);
+                        tmp1.Is_del = !tmp1.Is_del;
                         response.Massage = "Зміни застосовані!";
                     }
                 }

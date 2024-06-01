@@ -14,6 +14,8 @@ namespace Models
         public string? Poz { get; set; }
         public string? Vid { get; set; }
         public string? Notes { get; set; }
+
+        public bool Is_del { get; set; }
         public DateTime? Dates { get; set; }
         
         public DateTime? Dlain { get; set; }

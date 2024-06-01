@@ -5,9 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="Add_User" Height="324" Width="464">
-    <Grid Margin="0,0,10,3">
-        <GroupBox Header="User Information" Margin="10,10,10,75">
+        Title="Add User" Height="350" Width="500" Background="#F0F0F0">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="#007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#005A9E"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10">
+        <GroupBox Header="User Information" Margin="10" Padding="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -16,29 +40,26 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="6.895"/>
-                    <ColumnDefinition Width="65.252"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Margin="5,10,5,10" Grid.Row="0" Grid.Column="0" Content="Login:" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="NameTextBox" Margin="5,10,5,10" Grid.Row="0" Grid.Column="2" Text="{Binding SelectedItem.Name}"/>
+                <Label Content="Login:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                <TextBox x:Name="NameTextBox" Text="{Binding SelectedItem.Name}" Grid.Row="0" Grid.Column="1"/>
 
-                <Label Margin="5,10,5,10" Grid.Row="1" Grid.Column="0" Content="Password:" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="PassTextBox" Margin="5,10,5,10" Grid.Row="1" Grid.Column="2" Text="{Binding SelectedItem.Pass}"/>
+                <Label Content="Password:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                <TextBox x:Name="PassTextBox" Text="{Binding SelectedItem.Pass}" Grid.Row="1" Grid.Column="1"/>
 
-                <Label Margin="5,10,5,10" Grid.Row="2" Grid.Column="0" Content="Status:" Grid.ColumnSpan="2"/>
-                <ComboBox  x:Name="StatusTextBox" Margin="5,10,5,10" Grid.Row="2" Grid.Column="2"
-                    ItemsSource="{Binding SelectedItem.PossibleStatuses}"
-                    SelectedItem="{Binding SelectedItem.Status}"/>
+                <Label Content="Status:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                <ComboBox x:Name="StatusTextBox" ItemsSource="{Binding SelectedItem.PossibleStatuses}" SelectedItem="{Binding SelectedItem.Status}" Grid.Row="2" Grid.Column="1"/>
 
-                <Label Margin="5,5,5,15" Grid.Row="3" Grid.Column="0" Content="Active:" Grid.ColumnSpan="2"/>
-                <CheckBox x:Name="ActiveCheckBox" Margin="5,10,255,10" Grid.Row="3" Grid.Column="2"
-                    IsChecked="{Binding SelectedItem.Active}"
-                    Content="Active"/>
+                <Label Content="Active:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                <CheckBox x:Name="ActiveCheckBox" IsChecked="{Binding SelectedItem.Active}" Content="Active" Grid.Row="3" Grid.Column="1"/>
             </Grid>
         </GroupBox>
-        <Button Content="ADD USER"  Click="Button_Click_Add" HorizontalAlignment="Left" Margin="99,256,0,0" VerticalAlignment="Top"/>
 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10">
+            <Button Content="Add User" Click="Button_Click_Add" Width="100"/>
+        </StackPanel>
     </Grid>
 </Window>
