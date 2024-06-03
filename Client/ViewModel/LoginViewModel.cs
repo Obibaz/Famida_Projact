@@ -21,7 +21,7 @@ namespace Client.ViewModel
         {
             _loginData = new User();
 
-            LoginCommand = new RelayCommand(Login, CanLogin);
+            LoginCommand = new RelayCommand(Login);
         }
 
         public string Username
@@ -74,6 +74,7 @@ namespace Client.ViewModel
             }
             else if (myResponse.Massage != "SUCCESS")
                 System.Windows.Forms.MessageBox.Show(myResponse.Massage);
+
         }
 
         private void CloseCurrentWindow()
@@ -83,6 +84,8 @@ namespace Client.ViewModel
 
             window?.Close();
         }
+
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

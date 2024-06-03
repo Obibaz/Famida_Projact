@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Client.ViewModel
 {
@@ -15,6 +16,10 @@ namespace Client.ViewModel
         private string _poz;
         private string _vid;
         private string _notes;
+        private bool _isdel;
+        private string _date;
+        private string _dlain;
+
         private ICollection<Decision> _decisions;
 
         private string _newNum;
@@ -25,6 +30,19 @@ namespace Client.ViewModel
         //{
         //    Statuses = new List<string> { "Admin", "Director", "Worker" };
         //}
+
+        public bool Isdel 
+        {
+            get { return _isdel; }
+            set
+            {
+                if (_isdel != value)
+                {
+                    _isdel = value;
+                    OnPropertyChanged(nameof(Isdel));
+                }
+            }
+        }
 
         public string NewNum
         {
@@ -66,6 +84,30 @@ namespace Client.ViewModel
                 }
             }
         }
+        //public string Dates
+        //{
+        //    get { return _date; }
+        //    set
+        //    {
+        //        if (_date != value)
+        //        {
+        //            _date = value;
+        //            OnPropertyChanged(nameof(Dates));
+        //        }
+        //    }
+        //}
+        //public string Dlain
+        //{
+        //    get { return _dlain; }
+        //    set
+        //    {
+        //        if (_dlain != value)
+        //        {
+        //            _dlain = value;
+        //            OnPropertyChanged(nameof(Dlain));
+        //        }
+        //    }
+        //}
 
 
         public string Poz

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csproj", "{1C381F3B-787F-41EE-8EE7-E873BF265BF7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{525B891B-58E6-47BA-89AB-83BC3A660543}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{CFB0F037-03C9-4F17-A56A-D16A6E35A544}"
@@ -16,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbLayer", "DbLayer\DbLayer.csproj", "{13496630-3266-47C5-8BF2-97A7566D4330}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server_1", "Server_1\Server_1.csproj", "{A0BB0748-19B5-4F58-81A2-4C21DC8AB92D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server_1", "Server_1\Server_1.csproj", "{A0BB0748-19B5-4F58-81A2-4C21DC8AB92D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +22,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1C381F3B-787F-41EE-8EE7-E873BF265BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C381F3B-787F-41EE-8EE7-E873BF265BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C381F3B-787F-41EE-8EE7-E873BF265BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C381F3B-787F-41EE-8EE7-E873BF265BF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{525B891B-58E6-47BA-89AB-83BC3A660543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{525B891B-58E6-47BA-89AB-83BC3A660543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{525B891B-58E6-47BA-89AB-83BC3A660543}.Release|Any CPU.ActiveCfg = Release|Any CPU

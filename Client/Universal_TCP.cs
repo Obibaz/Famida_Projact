@@ -18,7 +18,7 @@ namespace Client
 
         public static MyResponse SERVER_PROSTO(MyRequst my)
         {
-            using (TcpClient client = new TcpClient("127.0.0.1", 9002))
+            using (TcpClient client = new TcpClient("134.249.61.74", 9002))
             {
                 NetworkStream ns = client.GetStream();
                 var request = my;
@@ -27,14 +27,10 @@ namespace Client
                 ns.Write(requestData, 0, requestData.Length);
 
                 // Отримуємо відповідь від сервера
-                byte[] responseData = new byte[10240];
+                byte[] responseData = new byte[102400];
                 int bytesRead = ns.Read(responseData, 0, responseData.Length);
                 string jsonResponse = Encoding.UTF8.GetString(responseData, 0, bytesRead);
 
-
-
-
-                
 
 
                 Console.WriteLine("Довжина JSON-рядка: " + jsonResponse.Length);
